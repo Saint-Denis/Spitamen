@@ -1,0 +1,112 @@
+/*==================================
+=            mobile-nav            =
+==================================*/
+
+.mobile-nav {
+    position: fixed;
+    visibility: hidden;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #535f75;
+    transition: width 0.5s 0.3s, visibility 0s 0.8s;
+    z-index: 100;
+    &.open {
+        visibility: visible;
+        width: 100%;
+        transition: width 0.5s;
+        .mobile-nav__close {
+            opacity: 1;
+            transition-delay: 0.5s;
+        }
+        .mobile-nav__list {
+            transition-delay: 0.5s;
+            opacity: 1;
+        }
+    }
+    &.close {
+        .mobile-nav__list {
+            opacity: 0;
+            transition-delay: 0s;
+            transition: opacity 0.3s 0.5s;
+        }
+        .mobile-nav__close {
+            opacity: 0;
+            transition-delay: 0s;
+            transition: opacity 0.3s 0.5s;
+        }
+    }
+}
+
+.mobile-nav__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    @include inline-block(middle);
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    transition: opacity 0.3s 0.5s;
+    opacity: 0;
+    svg {
+        fill: #fff;
+    }
+    @media screen and (max-width:600px) {
+        top: 15px;
+        right: 15px;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.mobile-nav__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 60%;
+}
+
+.mobile-nav__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: opacity 0.3s 0.5s;
+    opacity: 0;
+    margin-bottom: 50px;
+    @media screen and (max-height: 30.5em) {
+        height: 70%;
+    }
+}
+
+.mobile-nav__item {
+    margin-bottom: 20px;
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+.mobile-nav__link {
+    @include segoe(semibold);
+    @include font-size(54px, 60px);
+    text-decoration: none;
+    color: #fff;
+    backface-visibility: hidden;
+    @media screen and (max-width: 600px) {
+        @include font-size(24px, 28px);
+    }
+
+     @media screen and (max-height: 700px) {
+        @include font-size(24px, 28px);
+    }
+}
+
+
+/*=====  End of mobile-nav  ======*/

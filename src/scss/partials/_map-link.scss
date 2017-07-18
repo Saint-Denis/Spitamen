@@ -1,0 +1,36 @@
+/*================================
+=            map-link            =
+================================*/
+
+.map-link {
+    display: flex;
+    align-items: center;
+    transition: all 0.35s ease-in;
+
+    &:hover .map-link__text {
+        color:$yellow;
+    }
+    &:hover svg {
+        fill: $yellow;
+    }
+}
+
+.map-link__text {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.35s ease-in;
+  
+}
+
+.map-link__icon {
+    display: block;
+    width: 17px;
+    margin-right: 12px;
+    svg {
+        fill: #fff;
+        transition: all 0.3s ease-in;
+    }
+}
+
+
+/*=====  End of map-link  ======*/

@@ -1,0 +1,12 @@
+/*================================
+=            disabled            =
+================================*/
+.disabled {
+	input,textarea {
+		background:rgba(234,234,234,0.8);
+		pointer-events:none;
+	}
+}
+
+
+/*=====  End of disabled  ======*/

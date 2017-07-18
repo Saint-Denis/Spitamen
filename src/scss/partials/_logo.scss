@@ -1,0 +1,23 @@
+/*============================
+=            logo            =
+============================*/
+
+.logo {
+    width: 225px;
+    height: 58px;
+    margin: 0;
+    font-size:0;
+    img {
+        height: 58px;
+    }
+    @media screen and (max-width: 840px) {
+        width: 155px;
+        height: 40px;
+        img {
+            height: 40px;
+        }
+    }
+}
+
+
+/*=====  End of logo  ======*/

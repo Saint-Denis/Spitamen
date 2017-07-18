@@ -1,0 +1,14 @@
+/*===============================
+=            socials            =
+===============================*/
+.socials {
+	display:flex;
+	@media screen and (max-width: 480px) {
+		position:absolute;
+		left:10px;
+		bottom: 15px;
+	}
+}
+
+
+/*=====  End of socials  ======*/

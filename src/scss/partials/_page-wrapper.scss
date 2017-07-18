@@ -1,0 +1,22 @@
+/*====================================
+=            page-wrapper            =
+====================================*/
+.page-wrapper {
+	flex: 1 0 auto;
+    position: relative;
+    width: 100%; 
+    transition: transform 0.5s;
+
+     @media screen and (max-width:1300px) {
+    	&.is-visible {
+    		transform: translateY(95px);
+
+    		@media screen and (max-width:767px) {
+    			transform: translateY(57px);
+    		}
+    	}
+    }
+}
+
+
+/*=====  End of page-wrapper  ======*/

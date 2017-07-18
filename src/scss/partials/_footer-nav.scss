@@ -1,0 +1,45 @@
+/*==================================
+=            footer-nav            =
+==================================*/
+
+.footer-nav {
+    @include font-size(20px, 24px);
+}
+
+.footer-nav__caption {
+    color: $grey;
+    margin-bottom: 17px;
+    @media screen and (max-width: 992px) {
+        @include font-size(18px, 20px);
+        margin-bottom: 10px;
+    }
+}
+
+.footer-nav__item {
+    margin-bottom: 20px;
+    &:last-of-type {
+        margin-bottom: 0px;
+    }
+    @media screen and (max-width:992px) {
+        margin-bottom: 10px;
+        &:last-of-type {
+            margin-bottom: 0px;
+        }
+    }
+}
+
+.footer-nav__link {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid $yellow;
+    transition: all 0.35s ease-in;
+    &:hover {
+        border-bottom: 1px solid transparent;
+    }
+    @media screen and (max-width:992px) {
+        @include font-size(16px, 20px);
+    }
+}
+
+
+/*=====  End of footer-nav  ======*/

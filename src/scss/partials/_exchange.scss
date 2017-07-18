@@ -1,0 +1,153 @@
+/*================================
+=            exchange            =
+================================*/
+
+.exchange {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .jq-selectbox__select {
+        @include segoe(regular);
+        @include font-size(14px, 16px);
+        padding: 10px 0 11px 20px;
+        height: 37px;
+        background: $yellow;
+        color: #000;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        text-shadow: none;
+    }
+    .jq-selectbox__trigger {
+        border-left: none;
+        right: auto;
+        left: 0;
+        width: auto!important;
+        z-index: 50;
+        transition: all 0.35s ease-in;
+    }
+    .jq-selectbox__trigger-arrow {
+        top: 17px;
+        right: auto;
+        left: 9px;
+        border-top: 3px solid #000;
+        border-right: 3px solid transparent;
+        border-left: 3px solid transparent;
+        transition: all 0.35s ease-in;
+    }
+    .jq-selectbox__dropdown {
+        width: 100%!important;
+        top: 37px!important;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        border: none!important;
+    }
+    .jq-selectbox__dropdown ul {
+        padding-left: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        max-height: 115px!important;
+        li {
+            @include segoe(regular);
+            @include font-size(14px, 16px);
+            padding: 10px 10px 11px 20px;
+            background: $yellow;
+            color: #000;
+            border: none;
+            margin-bottom: 0;
+            &::before {
+                display: none;
+            }
+        }
+    }
+    .jq-selectbox.focused .jq-selectbox__select {
+        border: none!important;
+    }
+    .mCSB_inside > .mCSB_container {
+        margin-right: 0;
+    }
+    .mCSB_scrollTools .mCSB_draggerRail {
+        background-color: transparent;
+    }
+    .mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+        height: 18px;
+        background: $mainColor;
+    }
+    .mCSB_scrollTools {
+        left: 0;
+        right: auto;
+    }
+    .mCSB_scrollTools .mCSB_draggerContainer {
+        left: 9px;
+        right: auto;
+    }
+}
+
+.exchange__select {
+    width: 56px;
+    &.dropdown.focused.opened {
+        box-shadow: none;
+        border: none;
+    }
+    &.opened .jq-selectbox__trigger-arrow {
+        transform: rotate(180deg);
+        transition: all 0.35s ease-in;
+    }
+    @media screen and (max-width:480px) {
+        width: 57px;
+    }
+}
+
+.exchange__course {
+    max-width: 133px;
+    width: 100%;
+    max-height: 37px;
+    display: flex;
+    @media screen and (max-width: 480px) {
+        max-width: 100%;
+        width: auto;
+    }
+}
+
+input.exchange__input {
+    @include font-size(14px, 16px);
+    color: #000;
+    width: 75px;
+    background: #eaeaea;
+    transition: all 0.35s ease-in;
+    border: 1px solid transparent;
+    padding: 9px 10px 9px 10px;
+    &:focus {
+        background: #fff;
+        border: 1px solid $yellow;
+    }
+    @media screen and (max-width:480px) {
+        width: 50px;
+    }
+}
+
+a.exchange__link {
+    display: block;
+    border-bottom: none;
+    text-decoration: none;
+    transform: translateX(0);
+    transition: all 0.35s ease-in;
+    &:hover {
+        transform: translateX(5px);
+        border-bottom: none;
+        text-decoration: none;
+    }
+}
+
+.exchange__icon {
+    width: 12px;
+    height: 10px;
+    svg {
+        width: 12px;
+        height: 10px;
+    }
+}
+
+
+/*=====  End of exchange  ======*/

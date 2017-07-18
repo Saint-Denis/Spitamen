@@ -1,0 +1,79 @@
+/*==================================
+=            site-links            =
+==================================*/
+
+.site-links {
+    @media screen and (max-width: 840px) {
+        display: none;
+    }
+}
+
+.site-links__list {
+    display: flex;
+    align-items: flex-start;
+}
+
+.site-links__item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+   
+    &:hover svg {
+        fill: $yellow;
+    }
+    &:hover .site-links__icon--map svg {
+        fill: transparent;
+        stroke: $yellow;
+    }
+    &:hover .site-links__link {
+        color: $yellow;
+    }
+    
+}
+
+.site-links__link {
+    position: relative;
+    text-decoration: none;
+    display: block;
+    color: #fff;
+    transition: all 0.35s ease-in;
+
+    &--i-bank {
+        max-width: 138px;
+    }
+    &--m-bank {
+        max-width: 132px;
+    }
+    &--map {
+        max-width: 150px;
+    }
+}
+
+.site-links__icon {
+    margin-right: 10px;
+    svg {
+        fill: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+    &--i-bank {
+        width: 50px;
+        height: 35px;
+    }
+    &--m-bank {
+        width: 20px;
+        height: 35px;
+    }
+    &--map {
+        margin-right: 0;
+        width: 40px;
+        height: 45px;
+        svg {
+            fill: transparent;
+            stroke-width: 3px;
+            stroke: #fff;
+        }
+    }
+}
+
+
+/*=====  End of site-links  ======*/

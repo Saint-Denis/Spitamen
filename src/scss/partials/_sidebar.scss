@@ -1,0 +1,101 @@
+/*===============================
+=            sidebar            =
+===============================*/
+
+.sidebar {
+    max-width: 260px;
+    padding-bottom: 25px;
+    box-shadow: 0px 3px 15px -2px rgba(0, 0, 0, 0.57);
+    @media screen and (max-width:992px) {
+    	display:none;
+    }
+}
+
+.sidebar ul.sidebar__list {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.sidebar .sidebar__list .sidebar__item {
+    position: relative;
+    padding-left: 0px;
+    margin-bottom: 0px;
+    &:not(.sidebar__item--title)::before {
+        display: none;
+    }
+    &.active:not(.sidebar__item--title) {
+        .sidebar__link {
+            position: relative;
+            pointer-events: none;
+            @include segoe(bold);
+            color: #000;
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top:0;
+                left:0;
+                height:100%;
+                width:4px;
+                background:$yellow;
+
+            }
+            span {
+                border: none;
+                &:hover {
+                    border: none;
+                }
+            }
+        }
+    }
+    &--title {
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            transform: translateY(0);
+            border-radius: 0;
+            top: auto;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: $yellow;
+        }
+        .sidebar__link {
+            @include font-size(24px, 28px);
+            background: $mainColor;
+            color: #fff;
+            span {
+                border: none;
+                &:hover {
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
+.sidebar__list .sidebar__link {
+    display: block;
+    @include font-size(18px, 24px);
+    @include segoe(regular);
+    padding: 15px 20px 15px 30px;
+    color: $mainColor;
+    border-bottom: none;
+    text-decoration: none;
+    &:hover {
+        border-bottom: none;
+        text-decoration: none;
+    }
+    span {
+        border-bottom: 1px solid $yellow;
+        transition: 0.35s ease-in;
+        &:hover {
+            border-bottom: 1px solid transparent;
+        }
+    }
+}
+
+
+/*=====  End of sidebar  ======*/

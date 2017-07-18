@@ -1,0 +1,17 @@
+/*====================================
+=            table-scroll            =
+====================================*/
+.table-scroll {
+	overflow-x: auto;
+
+	@media screen and (max-width:767px) {
+
+		table td,
+		table th {
+			min-width:150px;
+		}
+	}
+}
+
+
+/*=====  End of table-scroll  ======*/

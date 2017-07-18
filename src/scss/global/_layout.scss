@@ -1,0 +1,61 @@
+/*==============================
+=            lauout            =
+==============================*/
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow-x: hidden;
+    &--banner {
+        .breadcrumbs--banner {
+            position: relative;
+            min-height: 200px;
+            background: url('../assets/img/content/banner-bg.jpg') no-repeat center 0px;
+            background-size: cover;
+            padding-top: 25px;
+            padding-bottom: 143px;
+            @media screen and (max-width: 767px) {
+                padding-bottom: 30px;
+            }
+            .breadcrumbs__item {
+                color: #fff;
+                &.active {
+                    border-bottom: 1px solid transparent;
+                    pointer-events: none;
+                    color: $grey;
+                }
+                &:hover {
+                    border-bottom: 1px solid transparent;
+                    color: $grey;
+                }
+            }
+            .breadcrumbs__container:nth-of-type(1) {
+                margin-bottom: 130px;
+                @media screen and (max-width: 767px) {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+    &--text {
+        .col-lg-8 .row {
+            margin-bottom: 20px;
+        }
+    }
+
+    &--index {
+        .workarea .container {
+            width: 100%;
+            padding:0;
+        }
+
+        .page-content {
+            padding-top:0;
+        }
+    }
+}
+
+
+/*=====  End of lauout  ======*/

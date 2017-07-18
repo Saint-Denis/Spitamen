@@ -1,0 +1,33 @@
+/*=============================
+=            error            =
+=============================*/
+.error {
+	.page-form__label {
+		display:none;
+	}
+	.page-form__label.error__text {
+		display: block;
+		color:red;
+	}
+
+	input {
+		border:1px solid red;
+
+		&::-webkit-input-placeholder {
+            color: red;
+        }
+        &:-moz-placeholder {
+            color: red;
+        }
+        &:-ms-input-placeholder {
+            color: red;
+        }
+	}
+}
+
+.error__text {
+	display:none;
+}
+
+
+/*=====  End of error  ======*/

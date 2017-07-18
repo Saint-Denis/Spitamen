@@ -1,0 +1,61 @@
+/*===================================
+=            breadcrumbs            =
+===================================*/
+
+.breadcrumbs {
+    padding: 15px 0;
+}
+
+.breadcrumbs__container {
+    padding: 0 10px;
+    margin: 0 auto;
+    width: 1120px;
+    max-width: 100%;
+}
+
+.breadcrumbs__item {
+    position: relative;
+    @include font-size(14px, 1);
+    color: $grey;
+    text-decoration: none;
+    transition: all 0.35s ease-in;
+    margin-right:15px;
+    border-bottom: 1px solid $yellow;
+
+    @media screen and (max-width:480px) {
+         @include font-size(12px, 1);
+    }
+
+    &:last-child {
+        margin-right:0;
+    }
+    &.active {
+        border-bottom: 1px solid transparent;
+        pointer-events:none;
+        color: $mainColor;
+
+        &::after {
+            display: none;
+        }
+    }
+    &:hover  {
+        text-deration:none;
+        border-bottom: 1px solid transparent;
+        color: $mainColor;
+    }
+
+    &::after {
+        content:'';
+        position: absolute;
+        top:50%;
+        right:-15px;
+        transform:translateY(-50%);
+        width: 7px;
+        height: 7px;
+        background:url('../assets/img/svg/right-arrow.svg') no-repeat 0 0;
+        background-size:cover;
+    }
+}
+
+
+/*=====  End of breadcrumbs  ======*/

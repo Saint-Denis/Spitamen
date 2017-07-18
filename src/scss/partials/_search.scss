@@ -1,0 +1,198 @@
+/*==============================
+=            search            =
+==============================*/
+
+.search {
+    position: relative;
+    transition: width 0.35s ease-in;
+    @media screen and (max-width: 480px) {}
+    &.open {
+        .search__wrap {
+            position: absolute;
+            right: 98px;
+            bottom: 0;
+            width: 250px;
+            height: 100%;
+            z-index: 150;
+            @media screen and (max-width: 840px) {
+                width: calc(100% - 98px)!important;
+            }
+            @media screen and (max-width: 480px) {
+                right: auto;
+                left: 60px;
+                width: calc(100% - 10px)!important;
+            }
+        }
+        .search__input {
+            @media screen and (max-width: 480px) {
+                width: auto;
+            }
+        }
+        @media screen and (max-width:840px) {
+            width: 100%;
+        }
+        @media screen and (max-width:480px) {
+            width: auto;
+        }
+    }
+}
+
+.search__wrap {
+    position: absolute;
+    left: auto;
+    right: 98px;
+    width: 0;
+    transition: width 0.35s ease-in;
+    height: 100%;
+    z-index: 100;
+    @media screen and (max-width: 480px) {
+        right: auto;
+        left: 0px;
+    }
+}
+
+.search__input {
+    top: 0;
+    right: 0;
+    border: 0;
+    outline: 0;
+    background: $yellow;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 17px 10px 16px 30px;
+    font-size: 18px;
+    color: #303030;
+    @media screen and (max-width: 480px) {
+        padding: 0;
+        padding-left: 20px;
+        width: 0;
+    }
+}
+
+.search__input::-webkit-input-placeholder {
+    color: #303030;
+}
+
+.search__input:-moz-placeholder {
+    color: #303030;
+}
+
+.search__input::-moz-placeholder {
+    color: #303030;
+}
+
+.search__input:-ms-input-placeholder {
+    color: #303030;
+}
+
+.search__submit {
+    display: none;
+    position: relative;
+    width: 98px;
+    display: block;
+    top: 50%;
+    right: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    background: #535f75;
+    z-index: 99;
+    @media screen and (max-width: 480px) {
+        width: 60px;
+        border-right: 1px solid transparent;
+    }
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 24px;
+        height: 23px;
+    }
+    svg {
+        fill: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+    &.open {
+        z-index: 100;
+        @media screen and (max-width: 480px) {
+            display: block;
+        }
+        @media screen and (max-width: 840px) {
+            position: absolute;
+        }
+        @media screen and (max-width: 480px) {
+            position: relative;
+        }
+    }
+    &.hide {
+        z-index: 1;
+        @media screen and (max-width: 480px) {
+            display: none;
+        }
+    }
+    &:hover {
+        svg {
+            fill: $yellow;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+.search__icon {
+    position: absolute;
+    width: 98px;
+    height: 100%;
+    display: block;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 100;
+    background: $mainColor;
+    @media screen and (max-width: 480px) {
+        position: relative;
+        width: 60px;
+        left: 0;
+        right: auto;
+        border-right: 1px solid #fff;
+    }
+    span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        width: 24px;
+        height: 23px;
+    }
+    svg {
+        fill: #fff;
+        transition: all 0.3s ease-in-out;
+    }
+    &.open {
+        z-index: 100;
+        @media screen and (max-width: 480px) {
+            display: block;
+            border-right: 1px solid transparent;
+        }
+    }
+    &.hide {
+        z-index: 1;
+        @media screen and (max-width: 480px) {
+            display: none;
+        }
+    }
+    &:hover {
+        svg {
+            fill: $yellow;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+
+/*=====  End of search  ======*/

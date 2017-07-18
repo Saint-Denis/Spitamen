@@ -1,0 +1,88 @@
+/*=============================
+=            popup            =
+=============================*/
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(720deg);
+    max-width: 520px;
+    width: 100%;
+    padding: 50px 90px 45px 60px;
+    background: #fff;
+    z-index: 150;
+    text-align: center;
+    backface-visibility: hidden;
+    opacity: 0;
+    transition: all 0.7s ease-in-out;
+    @media screen and (max-width: 767px) {
+        padding: 20px 20px 20px 20px;
+    }
+    .btn {
+        text-decoration: none;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        border-top: 30px solid #b2b2b2;
+        border-right: 30px solid #b2b2b2;
+        border-left: 30px solid #eaeaea;
+        border-bottom: 30px solid #eaeaea;
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+    &.show {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.popup__title {
+    @include font-size(30px, 34px);
+    color: $mainColor;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 767px) {
+    	@include font-size(20px, 24px);
+    	margin-bottom: 10px;
+    }
+}
+
+.popup__text {
+    margin-bottom: 40px;
+
+    @media screen and (max-width: 767px) {
+    	@include font-size(16px, 20px);
+    	margin-bottom: 10px;
+    }
+}
+
+.popup__close span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 17px;
+    height: 17px;
+    transition: all 0.35s ease-in;
+    @media screen and (max-width: 767px) {
+        top: 20px;
+        right: 20px;
+    }
+    svg {
+        fill: $mainColor;
+        ransition: all 0.35s ease-in-out;
+    }
+    &:hover {
+        svg {
+            fill: $yellow;
+        }
+    }
+}
+
+
+/*=====  End of popup  ======*/

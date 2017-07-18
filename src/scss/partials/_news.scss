@@ -1,0 +1,80 @@
+/*============================
+=            news            =
+============================*/
+
+.news {
+    max-width: 445px;
+    width:100%;
+    box-shadow: 0px 3px 15px -2px rgba(0, 0, 0, 0.57);
+    @media screen and (max-width:1100px) {
+		max-width:100%;
+		width: 48%;
+	}
+	@media screen and (max-width:767px) {
+		width: 100%;
+		margin-bottom:20px;
+	}
+}
+
+.news__title {
+    border-bottom: 4px solid #fecb09;
+    padding: 10px 15px 10px 20px;
+    background: #535f75;
+}
+
+a.news__title-link {
+    @include font-size(20px, 24px);
+    color: #fff;
+}
+
+a.news__item-pic {
+	width:145px;
+	height:95px;
+	background-size:cover!important;
+	background-repeat:no-repeat!important;
+	background-position:center center!important;
+	margin-right:20px;
+	border:none;
+
+	&:hover {
+		border:none;
+	}
+
+	@media screen and (max-width:767px) {
+		display:none;
+	}
+}
+
+
+.news__item {
+	display:flex;
+	padding-bottom:20px;
+
+	&:last-of-type {
+		padding-bottom:0;
+	}
+
+}
+
+.news__preview {
+	max-width:220px;
+	small {
+		display:block;
+		margin-bottom:5px;
+	}
+
+	@media screen and (max-width:767px) {
+		max-width:100%;
+	}
+}
+
+.news__content {
+	padding: 15px 20px 0px 20px;
+
+	@media screen and (max-width:1100px) {
+		padding: 15px 20px 20px 20px;
+	}
+}
+
+
+/*=====  End of news  ======*/

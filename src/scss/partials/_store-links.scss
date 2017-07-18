@@ -1,0 +1,14 @@
+/*===================================
+=            store-links            =
+===================================*/
+.store-links  {
+	display: flex;
+	margin-right:40px;
+	@media screen and (max-width:480px) {
+		margin-bottom:20px;
+		margin-right:0px;
+	}
+}
+
+
+/*=====  End of store-links  ======*/

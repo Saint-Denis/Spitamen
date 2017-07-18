@@ -1,0 +1,26 @@
+/*==================================
+=            store-icon            =
+==================================*/
+
+.store-icon {
+    display: block;
+    width: 95px;
+    height: 32px;
+    @media screen and (max-width: 480px) {
+        width: 70px;
+        height: 25px;
+    }
+    &--app {
+        margin-right: 40px;
+        @media screen and (max-width: 480px) {
+            margin-right: 15px;
+        }
+    }
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/*=====  End of store-icon  ======*/

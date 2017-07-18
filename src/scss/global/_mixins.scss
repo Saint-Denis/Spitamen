@@ -1,0 +1,51 @@
+/*=============================
+=            Mixin            =
+=============================*/
+
+//Шрифты
+@mixin segoe($style:regular) {
+     @if $style==light {
+      font-family: "SegoeUI Light", "Arial", sans-serif; 
+    }
+
+    @if $style==regular {
+        font-family: "SegoeUI", "Arial", sans-serif; 
+    }
+
+    @if $style==semibold {
+         font-family: "SegoeUI Semibold", "Arial", sans-serif;  
+    }
+
+    @if $style==bold {
+         font-family: "SegoeUI Bold", "Arial", sans-serif;  
+    }
+
+     @if $style==italic {
+         font-family: "SegoeUI Italic", "Arial", sans-serif;  
+    }
+  
+}
+
+
+@mixin font-size($sizeValue, $line) {
+    font-size: $sizeValue;
+    line-height:$line;
+}
+
+@mixin inline-block($vertical:top) {
+    display: inline-block;
+    vertical-align: $vertical;
+}
+
+
+//Клеарфикс
+@mixin clearfix {
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+
+/*=====  End of Mixin  ======*/
