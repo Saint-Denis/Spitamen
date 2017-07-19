@@ -8,6 +8,7 @@ $(document).ready(function() {
         <ol> \
             <li><a href="./text.html" style="color:#000;">Текстовая</a></li> \
             <li><a href="./index.html" style="color:#000;">Главная</a></li> \
+            <li><a href="./contacts.html" style="color:#000;">Контакты</a></li> \
         </ol> \
     </div>');
 
