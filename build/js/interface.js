@@ -37,8 +37,199 @@ $(document).ready(function() {
         };
     }());
 
-    (function() {
 
+    //Карта на странице контактов
+    (function() {
+        if ($('.map__area').length > 0) {
+
+            var latitude = 38.577563,
+                longtitude = 68.748248,
+                map_zoom = 14;
+
+            //Координаты
+            var locations = [
+                ["filial-1", 38.577563, 68.748248],
+                ["filial-2", 38.568085, 68.754414],
+            ];
+
+            //Создание точки на карте
+            var map_options = {
+                center: new google.maps.LatLng(latitude, longtitude),
+                zoom: map_zoom,
+                panControl: false,
+                zoomControl: false,
+                mapTypeControl: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                pane: "mapPane",
+                scrollwheel: false
+
+            }
+
+            //Инит карты
+            var map = new google.maps.Map(document.querySelector('.map__area'), map_options);
+
+            //Иконка маркера
+            var icon = {
+                url: './assets/img/svg/pointer.svg',
+                size: new google.maps.Size(25, 35),
+                origin: new google.maps.Point(0, 0),
+                anchor: new google.maps.Point(0, 32)
+            };
+
+            var latlngbounds = new google.maps.LatLngBounds(),
+                infoWindow = new InfoBox(options),
+                marker, 
+                i;
+
+            //Добавление маркеров по адресам
+            for (i = 0; i < locations.length; i++) {
+                var myLatLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+
+                //Добавляем координаты маркера в область
+                latlngbounds.extend(myLatLng);
+
+                marker = new google.maps.Marker({
+                    position: myLatLng,
+                    map: map,
+                    visible: true,
+                    animation: google.maps.Animation.DROP,
+                    icon: icon
+                });
+
+                //Центрируем маркеры
+                map.setCenter(latlngbounds.getCenter(), map.fitBounds(latlngbounds));
+
+                google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                    return function() {
+                        infoWindow.setContent(infoWindowContent[i][0]);
+                        infoWindow.open(map, marker);
+                    }
+                })(marker, i));
+
+            };
+
+
+            //Добавление иконок зума и уменьшения
+            function CustomZoomControl(controlDiv, map) {
+                var controlZoomIn = document.querySelector('.map__icon--plus'),
+                    controlZoomOut = document.querySelector('.map__icon--minus');
+
+                controlDiv.append(controlZoomIn);
+                controlDiv.append(controlZoomOut);
+
+                google.maps.event.addDomListener(controlZoomIn, 'click', function() {
+                    map.setZoom(map.getZoom() + 1);
+                });
+
+
+                google.maps.event.addDomListener(controlZoomOut, 'click', function() {
+                    map.setZoom(map.getZoom() - 1);
+                });
+
+            }
+
+            var zoomControlDiv = document.createElement('div');
+            var zoomControl = new CustomZoomControl(zoomControlDiv, map);
+            map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
+
+
+
+            //Центровка карты по центру при ресайзе
+            google.maps.event.addDomListener(window, 'resize', function() {
+                var center = map.getCenter();
+                google.maps.event.trigger(map, "resize");
+                map.setCenter(center);
+            });
+
+            
+            //Рисуем разметку лейбла
+            var infoWindowContent = [
+                [
+                '<div class="contact-label">' +
+                    '<div class="contact-label__container">' +
+                        '<div class="contact-label__title">Отделение "Спитамен Банк" в Тезгар</div>' +
+                        '<div class="contact-label__field">' +
+                            '<div class="contact-label__what">Адрес</div>' +
+                            '<div class="contact-label__desc">г. Душанбе, ул. Шамси</div>' +
+                        '</div>' +
+                        '<div class="contact-label__field">' +
+                            '<div class="contact-label__what">Телефоны</div>' +
+                            '<div class="contact-label__desc">' +
+                                '<a href="tel:4(+99244)640-65-65">4 (+ 992 44) 640-65-65</a>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="contact-label__field">' +
+                            '<div class="contact-label__what">Время работы</div>' +
+                            '<div class="contact-label__schedule">' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item"></div>' +
+                                '<div class="contact-label__schedule-item"></div>' +
+                            '</div>' +
+                            '<div class="contact-label__desc">' +
+                                '<span>09:00–20:00 пн–пт</span><br>' +
+                                '<span>10:00–18:00 сб</span><br>' +
+                                '<span>Выходной вс</span>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+                ],
+                [
+                '<div class="contact-label">' +
+                    '<div class="contact-label__container">' +
+                        '<div class="contact-label__title">Отделение "Спитамен Банк" в Тезгар</div>' +
+                        '<div class="contact-label__field">' +
+                            '<div class="contact-label__what">Адрес</div>' +
+                            '<div class="contact-label__desc">г. Душанбе, ул. Шерализода</div>' +
+                        '</div>' +
+                        '<div class="contact-label__field">' +
+                            '<div class="contact-label__what">Телефоны</div>' +
+                            '<div class="contact-label__desc">' +
+                                '<a href="tel:4(+99244)640-65-65">4 (+ 992 44) 640-65-65</a>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="contact-label__field">' +
+                            '<div class="contact-label__what">Время работы</div>' +
+                            '<div class="contact-label__schedule">' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item in-work"></div>' +
+                                '<div class="contact-label__schedule-item"></div>' +
+                                '<div class="contact-label__schedule-item"></div>' +
+                            '</div>' +
+                            '<div class="contact-label__desc">' +
+                                '<span>09:00–20:00 пн–пт</span><br>' +
+                                '<span>10:00–18:00 сб</span><br>' +
+                                '<span>Выходной вс</span>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>'
+                ]
+            ];
+
+            //Создаем настройки для лейбла (плагин InfoBox)
+            var options = {
+                content: infoWindowContent,
+                disableAutoPan: false,
+                maxWidth: 0,
+                pixelOffset: new google.maps.Size(-145, -350),
+                zIndex: null,
+                closeBoxMargin: "0px 0px 0px 0px",
+                closeBoxURL: "./assets/img/svg/close-map-button.svg",
+                infoBoxClearance: new google.maps.Size(1, 1),
+                isHidden: false,
+                pane: "floatPane",
+                enableEventPropagation: false
+            };
+
+        };
     }());
 
 
@@ -74,7 +265,7 @@ $(document).ready(function() {
     }());
 
     (function() {
-       
+
     }());
 
     //Слайдер на главной (сервисы)
