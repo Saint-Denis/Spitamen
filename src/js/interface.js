@@ -42,20 +42,16 @@ $(document).ready(function() {
     (function() {
         if ($('.map__area').length > 0) {
 
-            var latitude = 38.577563,
-                longtitude = 68.748248,
-                map_zoom = 14;
-
-            //Координаты
+            //Координаты 2 точек (филиалов)
             var locations = [
                 ["filial-1", 38.577563, 68.748248],
-                ["filial-2", 38.568085, 68.754414],
+                ["filial-2", 38.568085, 68.754414]
             ];
 
-            //Создание точки на карте
+            //Настройки карты
             var map_options = {
-                center: new google.maps.LatLng(latitude, longtitude),
-                zoom: map_zoom,
+                center: new google.maps.LatLng(0, 0),
+                zoom: 10,
                 panControl: false,
                 zoomControl: false,
                 mapTypeControl: false,
@@ -68,7 +64,7 @@ $(document).ready(function() {
             //Инит карты
             var map = new google.maps.Map(document.querySelector('.map__area'), map_options);
 
-            //Иконка маркера
+            //Иконка маркеров
             var icon = {
                 url: './assets/img/svg/pointer.svg',
                 size: new google.maps.Size(25, 35),
@@ -76,10 +72,11 @@ $(document).ready(function() {
                 anchor: new google.maps.Point(0, 32)
             };
 
+            //Создаем обьект LatLngBounds()
             var latlngbounds = new google.maps.LatLngBounds(),
-                infoWindow = new InfoBox(options),
-                marker, 
+                marker,
                 i;
+
 
             //Добавление маркеров по адресам
             for (i = 0; i < locations.length; i++) {
@@ -114,6 +111,7 @@ $(document).ready(function() {
                 var controlZoomIn = document.querySelector('.map__icon--plus'),
                     controlZoomOut = document.querySelector('.map__icon--minus');
 
+
                 controlDiv.append(controlZoomIn);
                 controlDiv.append(controlZoomOut);
 
@@ -129,88 +127,83 @@ $(document).ready(function() {
             }
 
             var zoomControlDiv = document.createElement('div');
+            zoomControlDiv.className = "zoom-wrapper";
             var zoomControl = new CustomZoomControl(zoomControlDiv, map);
             map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
 
 
 
-            //Центровка карты по центру при ресайзе
-            google.maps.event.addDomListener(window, 'resize', function() {
-                var center = map.getCenter();
-                google.maps.event.trigger(map, "resize");
-                map.setCenter(center);
-            });
 
-            
             //Рисуем разметку лейбла
             var infoWindowContent = [
                 [
-                '<div class="contact-label">' +
+                    '<div class="contact-label">' +
+
                     '<div class="contact-label__container">' +
-                        '<div class="contact-label__title">Отделение "Спитамен Банк" в Тезгар</div>' +
-                        '<div class="contact-label__field">' +
-                            '<div class="contact-label__what">Адрес</div>' +
-                            '<div class="contact-label__desc">г. Душанбе, ул. Шамси</div>' +
-                        '</div>' +
-                        '<div class="contact-label__field">' +
-                            '<div class="contact-label__what">Телефоны</div>' +
-                            '<div class="contact-label__desc">' +
-                                '<a href="tel:4(+99244)640-65-65">4 (+ 992 44) 640-65-65</a>' +
-                            '</div>' +
-                        '</div>' +
-                        '<div class="contact-label__field">' +
-                            '<div class="contact-label__what">Время работы</div>' +
-                            '<div class="contact-label__schedule">' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item"></div>' +
-                                '<div class="contact-label__schedule-item"></div>' +
-                            '</div>' +
-                            '<div class="contact-label__desc">' +
-                                '<span>09:00–20:00 пн–пт</span><br>' +
-                                '<span>10:00–18:00 сб</span><br>' +
-                                '<span>Выходной вс</span>' +
-                            '</div>' +
-                        '</div>' +
+                    '<div class="contact-label__title">Отделение "Спитамен Банк" в Тезгар</div>' +
+                    '<div class="contact-label__field">' +
+                    '<div class="contact-label__what">Адрес</div>' +
+                    '<div class="contact-label__desc">г. Душанбе, ул. Шамси</div>' +
                     '</div>' +
-                '</div>'
+                    '<div class="contact-label__field">' +
+                    '<div class="contact-label__what">Телефоны</div>' +
+                    '<div class="contact-label__desc">' +
+                    '<a href="tel:4(+99244)640-65-65">4 (+ 992 44) 640-65-65</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="contact-label__field">' +
+                    '<div class="contact-label__what">Время работы</div>' +
+                    '<div class="contact-label__schedule">' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '</div>' +
+                    '<div class="contact-label__desc">' +
+                    '<span>09:00–20:00 пн–пт</span>' +
+                    '<span>10:00–18:00 сб</span>' +
+                    '<span>Выходной вс</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
                 ],
                 [
-                '<div class="contact-label">' +
+                    '<div class="contact-label">' +
                     '<div class="contact-label__container">' +
-                        '<div class="contact-label__title">Отделение "Спитамен Банк" в Тезгар</div>' +
-                        '<div class="contact-label__field">' +
-                            '<div class="contact-label__what">Адрес</div>' +
-                            '<div class="contact-label__desc">г. Душанбе, ул. Шерализода</div>' +
-                        '</div>' +
-                        '<div class="contact-label__field">' +
-                            '<div class="contact-label__what">Телефоны</div>' +
-                            '<div class="contact-label__desc">' +
-                                '<a href="tel:4(+99244)640-65-65">4 (+ 992 44) 640-65-65</a>' +
-                            '</div>' +
-                        '</div>' +
-                        '<div class="contact-label__field">' +
-                            '<div class="contact-label__what">Время работы</div>' +
-                            '<div class="contact-label__schedule">' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item in-work"></div>' +
-                                '<div class="contact-label__schedule-item"></div>' +
-                                '<div class="contact-label__schedule-item"></div>' +
-                            '</div>' +
-                            '<div class="contact-label__desc">' +
-                                '<span>09:00–20:00 пн–пт</span><br>' +
-                                '<span>10:00–18:00 сб</span><br>' +
-                                '<span>Выходной вс</span>' +
-                            '</div>' +
-                        '</div>' +
+                    '<div class="contact-label__title">Отделение "Спитамен Банк" в Тезгар</div>' +
+                    '<div class="contact-label__field">' +
+                    '<div class="contact-label__what">Адрес</div>' +
+                    '<div class="contact-label__desc">г. Душанбе, ул. Шерализода</div>' +
                     '</div>' +
-                '</div>'
+                    '<div class="contact-label__field">' +
+                    '<div class="contact-label__what">Телефоны</div>' +
+                    '<div class="contact-label__desc">' +
+                    '<a href="tel:4(+99244)640-65-65">4 (+ 992 44) 640-65-65</a>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="contact-label__field">' +
+                    '<div class="contact-label__what">Время работы</div>' +
+                    '<div class="contact-label__schedule">' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item in-work"></div>' +
+                    '<div class="contact-label__schedule-item"></div>' +
+                    '<div class="contact-label__schedule-item"></div>' +
+                    '</div>' +
+                    '<div class="contact-label__desc">' +
+                    '<span>09:00–20:00 пн–пт</span>' +
+                    '<span>10:00–18:00 сб</span>' +
+                    '<span>Выходной вс</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '</div>'
                 ]
             ];
 
@@ -219,15 +212,77 @@ $(document).ready(function() {
                 content: infoWindowContent,
                 disableAutoPan: false,
                 maxWidth: 0,
-                pixelOffset: new google.maps.Size(-145, -350),
+                pixelOffset: new google.maps.Size(50, -200),
                 zIndex: null,
-                closeBoxMargin: "0px 0px 0px 0px",
-                closeBoxURL: "./assets/img/svg/close-map-button.svg",
+                closeBoxMargin: "12px 12px 2px 2px",
+                closeBoxURL: "./assets/img/svg/map-cancel.svg",
                 infoBoxClearance: new google.maps.Size(1, 1),
                 isHidden: false,
                 pane: "floatPane",
                 enableEventPropagation: false
             };
+
+            var infoWindow = new InfoBox(options);
+
+            //Центровка карты по центру при ресайзе
+            google.maps.event.addDomListener(window, 'resize', function() {
+                var center = map.getCenter();
+                google.maps.event.trigger(map, "resize");
+                map.setCenter(center);
+
+                if ($(window).width() < 767) {
+                    infoWindow.setOptions({ pixelOffset: new google.maps.Size(center) });
+                } else {
+                    infoWindow.setOptions({ pixelOffset: new google.maps.Size(50, -200) });
+                }
+
+            });
+
+            //Центровка карты по центру при загрузке
+            google.maps.event.addDomListener(window, 'load', function() {
+                var center = map.getCenter();
+                google.maps.event.trigger(map, "load");
+                map.setCenter(center);
+
+                if ($(window).width() < 767) {
+                    infoWindow.setOptions({ pixelOffset: new google.maps.Size(center) });
+                } else {
+                    infoWindow.setOptions({ pixelOffset: new google.maps.Size(50, -200) });
+                }
+
+            });
+
+
+            //Скрыть и показаь карту
+            $('.hide-link').on('click', function(e) {
+                e.preventDefault();
+
+                var $map = $('.map'),
+                    $mapArea = $('.map__area'),
+                    $hideLink = $(this);
+
+                if (!$map.hasClass('is-hided')) {
+                    $mapArea.slideUp({
+                        complete: function() {
+                            setTimeout(function() {
+                                $map.removeClass('is-opened').addClass('is-hided');
+                            }, 100);
+                            $hideLink.text('Показать карту');
+                        }
+                    });
+
+                } else {
+                    $mapArea.slideDown({
+                        complete: function() {
+                            setTimeout(function() {
+                                $map.removeClass('is-hided').addClass('is-opened');
+                            }, 100);
+                            $hideLink.text('Скрыть карту');
+                        }
+                    });
+
+                }
+            });
 
         };
     }());
