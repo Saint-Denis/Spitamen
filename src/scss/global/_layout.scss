@@ -40,7 +40,7 @@
         }
     }
     &--text {
-        .col-lg-8 .row {
+        .col-lg-9 .row {
             margin-bottom: 20px;
         }
     }
@@ -75,6 +75,12 @@
             @media screen and (max-width:480px) {
                 margin-bottom:25px;
             }
+        }
+    }
+
+    &--news {
+        .sidebar {
+            margin-bottom:30px;
         }
     }
 }

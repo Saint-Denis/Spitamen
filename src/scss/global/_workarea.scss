@@ -98,6 +98,10 @@
         @include font-size(20px, 26px);
         color: #000;
         margin-bottom: 20px;
+        @media screen and (max-width: 767px) {
+            @include font-size(18px, 24px);
+            margin-bottom: 15px;
+        }
     }
     strong {
         @include font-size(20px, 24px);
