@@ -68,6 +68,12 @@
 
         }
     }
+
+    &--management {
+        h1 + p {
+            margin-bottom:50px;
+        }
+    }
 }
 
 

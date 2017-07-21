@@ -9,6 +9,7 @@ $(document).ready(function() {
             <li><a href="./text.html" style="color:#000;">Текстовая</a></li> \
             <li><a href="./index.html" style="color:#000;">Главная</a></li> \
             <li><a href="./contacts.html" style="color:#000;">Контакты</a></li> \
+            <li><a href="./management.html" style="color:#000;">Правление</a></li> \
         </ol> \
     </div>');
 
