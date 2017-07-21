@@ -10,6 +10,7 @@ $(document).ready(function() {
             <li><a href="./index.html" style="color:#000;">Главная</a></li> \
             <li><a href="./contacts.html" style="color:#000;">Контакты</a></li> \
             <li><a href="./management.html" style="color:#000;">Правление</a></li> \
+            <li><a href="./reports.html" style="color:#000;">Отчеты</a></li> \
         </ol> \
     </div>');
 

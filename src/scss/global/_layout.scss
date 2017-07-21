@@ -64,14 +64,17 @@
             margin-bottom: 38px;
             width: 1120px;
             max-width: 100%;
-            left:10px;
-
+            left: 10px;
         }
     }
-
-    &--management {
+    &--management,
+    &--reports {
         h1 + p {
-            margin-bottom:50px;
+            margin-bottom: 50px;
+
+            @media screen and (max-width:480px) {
+                margin-bottom:25px;
+            }
         }
     }
 }
