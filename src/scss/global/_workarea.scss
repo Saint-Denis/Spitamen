@@ -123,37 +123,6 @@
             color: $yellow;
         }
     }
-    ol {
-        counter-reset: myCounter;
-        padding-left: 65px;
-        margin-top: 0px;
-        margin-bottom: 50px;
-        @media screen and (max-width: 767px) {
-            padding-left: 15px;
-        }
-        li {
-            position: relative;
-            @include segoe(italic);
-            color: #535f75;
-            padding-left: 30px;
-            margin-bottom: 25px;
-            list-style: none;
-            @media screen and (max-width: 767px) {
-                padding-left: 20px;
-            }
-            &::before {
-                position: absolute;
-                top: 0;
-                left: 0;
-                counter-increment: myCounter;
-                content: counter(myCounter);
-                color: $yellow;
-            }
-            &:last-child {
-                margin-bottom: 0px;
-            }
-        }
-    }
     ul {
         padding-left: 65px;
         margin-top: 0px;
@@ -182,6 +151,43 @@
                 height: 10px;
                 border-radius: 50%;
                 background: $yellow;
+            }
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    ol {
+        counter-reset: myCounter;
+        padding-left: 65px;
+        margin-top: 0px;
+        margin-bottom: 50px;
+        @media screen and (max-width: 767px) {
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+        li {
+            position: relative;
+            @include segoe(italic);
+            color: #535f75;
+            padding-left: 30px;
+            margin-bottom: 25px;
+            list-style: none;
+            @media screen and (max-width: 767px) {
+                padding-left: 20px;
+            }
+            &::before {
+                position: absolute;
+                top: 0;
+                left: 0;
+                counter-increment: myCounter;
+                content: counter(myCounter);
+                color: $yellow;
+                transform: translateY(0);
+                width: auto;
+                height: auto;
+                border-radius: 0;
+                background: transparent;
             }
             &:last-child {
                 margin-bottom: 0px;

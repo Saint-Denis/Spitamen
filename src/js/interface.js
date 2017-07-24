@@ -23,6 +23,23 @@ $(document).ready(function() {
         });
     }());
 
+
+    //Активный пункт меню в навигации
+    (function() {
+        var $itemsMenu = $('.page-nav__item');
+
+        $itemsMenu.each(function() {
+            var $this = $(this),
+                $link = $this.find('>a');
+
+
+
+            $this.on('click', function() {
+                $link.addClass('active');
+            });
+        });
+    }());
+
     //Слайдер на главной
     (function() {
         if ($('.main-slider__slides').length > 0) {
@@ -39,6 +56,33 @@ $(document).ready(function() {
 
             });
         };
+    }());
+
+
+    //Аккоредеон
+    (function() {
+        $('.faq-acco__trigger').on('click', function(e) {
+            e.preventDefault();
+
+            var $this = $(this),
+                $item = $this.closest('.faq-acco__item'),
+                $list = $this.closest('.faq-acco__list'),
+                $items = $list.find('.faq-acco__item'),
+                $content = $item.find('.faq-acco__inner'),
+                $otherContent = $list.find('.faq-acco__inner'),
+                $duration = 400;
+
+            if (!$item.hasClass('active')) {
+                $items.removeClass('active');
+                $item.addClass('active');
+                $otherContent.stop(true, true).slideUp($duration);
+                $content.stop(true, true).slideDown($duration);
+            } else {
+                $content.stop(true, true).slideUp($duration);
+                $item.stop(true, true).removeClass('active');
+            }
+
+        });
     }());
 
 
