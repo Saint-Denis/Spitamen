@@ -86,6 +86,30 @@
             margin-bottom: 30px;
         }
     }
+    &--404 {
+        .page-content {
+            height: calc(100vh - 84px);
+            @media screen and (max-height: 700px) {
+                height: auto;
+            }
+            @media screen and (max-width: 992px) {
+                height: calc(100vh - 61px);
+            }
+            @media screen and (max-width: 767px) {
+                height: auto;
+            }
+        }
+        .page-content .container {
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            @media screen and (max-width: 767px) {
+                display: block;
+            }
+        }
+    }
 }
 
 
