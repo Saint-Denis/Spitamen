@@ -12,6 +12,7 @@ $(document).ready(function() {
             <li><a href="./management.html" style="color:#000;">Правление</a></li> \
             <li><a href="./reports.html" style="color:#000;">Отчеты</a></li> \
             <li><a href="./news.html" style="color:#000;">Новости</a></li> \
+            <li><a href="./product-page-02.html" style="color:#000;">Товары</a></li> \
         </ol> \
     </div>');
 

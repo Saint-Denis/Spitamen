@@ -118,7 +118,7 @@ gulp.task("browser-sync", function() {
         server: {
             baseDir: './build/'
         },
-        startPath: 'news.html'
+        startPath: 'product-page-02.html'
     });
 });
 
