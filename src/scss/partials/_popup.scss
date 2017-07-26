@@ -6,7 +6,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0) rotate(720deg);
+    transform: translate(-50%, -50%);
     max-width: 520px;
     width: 100%;
     padding: 50px 90px 45px 60px;
@@ -15,7 +15,8 @@
     text-align: center;
     backface-visibility: hidden;
     opacity: 0;
-    transition: all 0.7s ease-in-out;
+    visibility:hidden;
+    transition: all 0.35s ease-in-out;
     @media screen and (max-width: 767px) {
         padding: 20px 20px 20px 20px;
     }
@@ -27,8 +28,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        border-top: 30px solid #b2b2b2;
-        border-right: 30px solid #b2b2b2;
+        border-top: 30px solid rgba(178,178,178,0.7);
+        border-right: 30px solid rgba(178,178,178,0.7);
         border-left: 30px solid #eaeaea;
         border-bottom: 30px solid #eaeaea;
         @media screen and (max-width: 767px) {
@@ -36,7 +37,7 @@
         }
     }
     &.show {
-        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        visibility:visible;
         opacity: 1;
     }
 }

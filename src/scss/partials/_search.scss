@@ -52,6 +52,7 @@
 }
 
 .search__input {
+    @include segoe(regular);
     top: 0;
     right: 0;
     border: 0;

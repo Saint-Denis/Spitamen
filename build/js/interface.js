@@ -9,7 +9,8 @@ $(document).ready(function() {
             <li><a href="./text.html" style="color:#000;">Текстовая</a></li> \
             <li><a href="./index.html" style="color:#000;">Главная</a></li> \
             <li><a href="./contacts.html" style="color:#000;">Контакты</a></li> \
-            <li><a href="./management.html" style="color:#000;">Правление</a></li> \
+            <li><a href="./management.html" style="color:#000;">Правление1.1</a></li> \
+            <li><a href="./management2.html" style="color:#000;">Правление1.2</a></li> \
             <li><a href="./reports.html" style="color:#000;">Отчеты</a></li> \
             <li><a href="./news.html" style="color:#000;">Новости</a></li> \
             <li><a href="./product-page-02.html" style="color:#000;">Товары</a></li> \
@@ -477,7 +478,7 @@ $(document).ready(function() {
             $popup.removeClass('show');
             setTimeout(function() {
                 $overlay.removeClass('show');
-            }, 500);
+            }, 200);
 
         });
     }());
@@ -591,7 +592,7 @@ $(document).ready(function() {
         stickyNav();
 
         function showNav() {
-            if ($windowWidth < 1300) {
+            if ($windowWidth < 1350) {
                 $(window).off('scroll');
 
                 $('.finance-trigger').on('click', function() {
@@ -607,5 +608,99 @@ $(document).ready(function() {
         showNav()
     });
 
+
+}());
+
+
+
+//Липкое бокое меню 1
+(function() {
+    if ($('.layout--management').length > 0) {
+        $(window).on('load resize', function() {
+            var $windowWidth = $(window).width(),
+                $windowHeight = $(window).height(),
+                $headerHeight = $('.layout--management .page-header').height(),
+                $sideBar = $('.layout--management .sidebar'),
+                $pageFooter = $('.layout--management .page-footer'),
+                $endZone = $pageFooter.offset().top - $windowHeight;
+
+            function stickySideBar() {
+
+                $(window).on('scroll', function() {
+                    if ($(this).scrollTop() > $headerHeight) {
+
+                        $sideBar.addClass('sticky');
+                        $sideBar.css({
+                            'top': $(this).scrollTop() - 225
+                        });
+
+                        if ($(this).scrollTop() > $endZone) {
+                            $sideBar.removeClass('sticky');
+                            $sideBar.css({
+                                'position': 'relative',
+                                'top': $pageFooter.offset().top - $windowHeight
+
+                            });
+                        }
+
+                    } else {
+                        $sideBar.removeClass('sticky');
+                        $sideBar.css({
+                            'position': 'relative',
+                            'top': 0
+                        });
+
+                        if ($(this).scrollTop() < $endZone) {
+                            $sideBar.addClass('sticky');
+                            $sideBar.css({
+                                'top': $(this).scrollTop()
+
+                            });
+                        }
+                    };
+
+                });
+
+            };
+
+            stickySideBar();
+
+        });
+    }
+
+}());
+
+
+//Липкое бокое меню 2
+(function() {
+    if ($('.layout--management2').length > 0) {
+        $(window).on('load resize', function() {
+            var $windowWidth2 = $(window).width(),
+                $windowHeight2 = $(window).height(),
+                $headerHeight2 = $('.layout--management2 .page-header').height(),
+                $sideBar2 = $('.layout--management2 .sidebar'),
+                $pageFooter2 = $('.layout--management2 .page-footer'),
+                $endZone2 = $pageFooter2.offset().top - $windowHeight2;
+
+            function stickySideBar2() {
+                $(window).on('scroll', function() {
+                    console.log($endZone2);
+                    console.log($(this).scrollTop());
+                    if ($(this).scrollTop() > $headerHeight2) {
+                        $sideBar2.removeClass('hide').addClass('sticky2');
+
+                        if ($(this).scrollTop() > $endZone2) {
+                            $sideBar2.addClass('hide').removeClass('sticky2');
+                        }
+
+                    } else {
+                        $sideBar2.removeClass('sticky2');
+                    };
+                });
+            };
+
+            stickySideBar2();
+        });
+    }
 
 }());

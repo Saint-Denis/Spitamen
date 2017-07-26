@@ -10,10 +10,10 @@
 	bottom:0;
 	left:0;
 	z-index: 149;
-	background:#b2b2b2;
+	background:rgba(178,178,178,0.7);
 	visibility:hidden;
 	opacity:0;
-	transition:all 0.4s ease-in-out;
+	transition:all 0.5s ease-in-out;
 
 	&.show {
 		opacity:1;

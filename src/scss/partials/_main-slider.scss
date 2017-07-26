@@ -9,12 +9,18 @@
     outline:none;
 }
 
-.main-slider__slide {
+a.main-slider__slide {
+    display: block;
     min-height: 480px;
     background-repeat: no-repeat!important;
     background-size: cover!important;
     background-position: 0 0;
     outline:none;
+    border:none;
+
+    &:hover {
+       border:none;
+    }
 
     @media screen and (max-width: 767px) {
     	 min-height: 325px;

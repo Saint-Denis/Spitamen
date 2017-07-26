@@ -22,7 +22,8 @@ ul.pagination__list {
     }
 }
 
-.pagination__item a.pagination__link {
+.pagination__item a.pagination__link,
+.pagination__item span.pagination__link {
     @include inline-block(middle);
     @include segoe(regular);
     @include font-size(18px, 24px);
